@@ -5,6 +5,6 @@ WORKDIR /
 COPY python_packages.txt /Docker/
 RUN pip3 install -r /Docker/python_packages.txt
 
-WORKDIR /duckdb/AOSQL2024
+WORKDIR /duckdb
 
 ENTRYPOINT [ "bash" ]
