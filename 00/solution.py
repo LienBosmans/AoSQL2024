@@ -16,4 +16,4 @@ con.sql(
 '''--sql
 
 '''
-).to_csv('solution.csv')
+).to_csv('solution.csv') # use .show() instead for a quick peak
