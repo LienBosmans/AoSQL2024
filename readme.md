@@ -46,6 +46,13 @@ duckdb.duckdb.IOException: IO Error: Cannot open file "/duckdb/xx/quack.db": Per
 ## Resolving Postgres-DuckDB incompatibilities
 
 Since the challenges are based on Postgres, sometimes small adjustments to the input files are needed to make them compatible with DuckDB. List below
-- replace `SERIAL PRIMARY KEY` by `INTEGER` *(days 2, 4)*
+- replace `SERIAL PRIMARY KEY` by `INTEGER PRIMARY KEY` and mimic the auto incrementing key functionality where needed
+    - create a custom key-generator such as `CREATE SEQUENCE seq_child_id START 1;`
+    - add that as an extra argument to the `INSERT INTO` statement:
+        ```
+        INSERT INTO children (child_id, name, age, city) VALUES
+            (nextval('seq_child_id'),'Tommy', 8, 'London'),
+            ...
+        ```
 
-Because DuckDB doesn't support data type XML, I skipped the challenge of *day 3* for now.
+Because DuckDB doesn't support data type XML, I skipped the challenge of day 3 for now.
