@@ -46,7 +46,7 @@ duckdb.duckdb.IOException: IO Error: Cannot open file "/duckdb/xx/quack.db": Per
 ## Resolving Postgres-DuckDB incompatibilities
 
 Since the challenges are based on Postgres, sometimes small adjustments to the input files are needed to make them compatible with DuckDB. List below
-- replace `SERIAL PRIMARY KEY` by `INTEGER PRIMARY KEY` and mimic the auto incrementing key functionality where needed
+- replace `SERIAL PRIMARY KEY` by `INTEGER PRIMARY KEY` and mimic the auto incrementing key functionality where needed (only needed for the examples):
     - create a custom key-generator such as `CREATE SEQUENCE seq_child_id START 1;`
     - add that as an extra argument to the `INSERT INTO` statement:
         ```
@@ -54,5 +54,6 @@ Since the challenges are based on Postgres, sometimes small adjustments to the i
             (nextval('seq_child_id'),'Tommy', 8, 'London'),
             ...
         ```
+- The error `Constraint Error: Violates foreign key constraint because key "..." does not exist in the referenced table` can be resolved by simply deleting the statement `FOREIGN KEY (...) REFERENCES Table(table_id)` from the input file.
 
 Because DuckDB doesn't support data type XML, I skipped the challenge of day 3 for now.
