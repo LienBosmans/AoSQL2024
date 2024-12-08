@@ -37,3 +37,10 @@ There exist multiple linters and extensions for this. I'm using this one in VSCo
 
 You can use the instructions on the DuckDB website to download and install DBeaver, a free Universal Database Manger.\
 https://duckdb.org/docs/guides/sql_editors/dbeaver.html
+
+## Resolving Postgres-DuckDB incompatibilities
+
+Since the challenges are based on Postgres, sometimes small adjustments to the input files are needed to make them compatible with DuckDB. List below
+- replace `SERIAL PRIMARY KEY` by `INTEGER` *(days 2, 4)*
+
+Because DuckDB doesn't support data type XML, I skipped the challenge of *day 3* for now.
