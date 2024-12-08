@@ -38,6 +38,11 @@ There exist multiple linters and extensions for this. I'm using this one in VSCo
 You can use the instructions on the DuckDB website to download and install DBeaver, a free Universal Database Manger.\
 https://duckdb.org/docs/guides/sql_editors/dbeaver.html
 
+Note that DuckDB allows only one connection at the same. If you get below error when trying to run your script, you need to first disconnect the database in DBeaver.
+```
+duckdb.duckdb.IOException: IO Error: Cannot open file "/duckdb/xx/quack.db": Permission denied
+```
+
 ## Resolving Postgres-DuckDB incompatibilities
 
 Since the challenges are based on Postgres, sometimes small adjustments to the input files are needed to make them compatible with DuckDB. List below
