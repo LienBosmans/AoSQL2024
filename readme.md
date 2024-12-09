@@ -46,7 +46,7 @@ duckdb.duckdb.IOException: IO Error: Cannot open file "/duckdb/xx/quack.db": Per
 ## Resolving Postgres-DuckDB incompatibilities
 
 Since the challenges are based on Postgres, sometimes small adjustments to the input files are needed to make them compatible with DuckDB. List below
-- replace `SERIAL PRIMARY KEY` by `INTEGER PRIMARY KEY` and mimic the auto incrementing key functionality where needed (only needed for the examples):
+- replace `SERIAL PRIMARY KEY` by `INTEGER PRIMARY KEY` and mimic the auto incrementing key functionality where needed (only needed for the examples, except on day 9):
     - create a custom key-generator such as `CREATE SEQUENCE seq_child_id START 1;`
     - add that as an extra argument to the `INSERT INTO` statement:
         ```
